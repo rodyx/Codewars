@@ -7,7 +7,7 @@ function sudoku(puzzle) {
     let square = [];                                                           // Квадрат 3x3 на поле
     let map = new Map();                                                       // Сохраняет в себе возможные для ячейки значения
     let count = 0;                                                             // Счетчик цикла пробега по полю
-    let end = false;                            
+    let isEnd = false;                            
       
     function res(resolvePuzzle) {
       for (let i = 0; i < 9; i++) {
@@ -63,7 +63,7 @@ function sudoku(puzzle) {
     let result = res(puzzle);
    
     // повторяем проход по полю, пока не останется пустых ячеек
-    while (!end) {
+    while (!isEnd) {
         count++;
         result = res(result)
         if (result.every(item => item.every(el => el !== 0))) end = true;
